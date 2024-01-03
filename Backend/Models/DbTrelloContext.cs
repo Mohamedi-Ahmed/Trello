@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace Backend.Models;
+namespace TrelloMVC.Models;
 
 public partial class DbTrelloContext : DbContext
 {

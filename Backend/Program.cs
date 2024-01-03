@@ -1,4 +1,9 @@
+using TrelloMVC.Models;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Ajouter un DBContext
+builder.Services.AddDbContext<DbTrelloContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

@@ -1,4 +1,4 @@
-namespace Backend.Models;
+namespace TrelloMVC.Models;
 
 public class ErrorViewModel
 {

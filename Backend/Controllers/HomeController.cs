@@ -1,16 +1,18 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Backend.Models;
+using TrelloMVC.Models;
 
-namespace Backend.Controllers;
+namespace TrelloMVC.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
 
-    public HomeController(ILogger<HomeController> logger)
+    private readonly DbTrelloContext _context;
+    public HomeController(ILogger<HomeController> logger, DbTrelloContext context)
     {
         _logger = logger;
+        _context = context;
     }
 
     public IActionResult Index()
