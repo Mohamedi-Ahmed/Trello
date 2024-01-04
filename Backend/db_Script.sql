@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS Projects (
     Name TEXT NOT NULL,
     Description TEXT,
     DateCreation TEXT NOT NULL
-);
+    );
 
 -- Creation of the 'Lists' table
 CREATE TABLE IF NOT EXISTS Lists (
@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS Lists (
     IdProject INTEGER,
     FOREIGN KEY (IdProject) REFERENCES Projects (Id)
 );
+
 
 -- Creation of the 'Cards' (Tasks) table
 CREATE TABLE IF NOT EXISTS Cards (
@@ -31,8 +32,32 @@ CREATE TABLE IF NOT EXISTS Comments (
     DateCreation TEXT NOT NULL,
     IdCard INTEGER,
     UserName TEXT NOT NULL,
-    FOREIGN KEY (IdCard) REFERENCES Cards (Id)
+    FOREIGN KEY (IdCard) REFERENCES Cards(Id)
 );
+
+CREATE TABLE IF NOT EXISTS Users(
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    UserName TEXT NOT NULL,
+    Password TEXT
+);
+
+CREATE TABLE IF NOT EXISTS UserProjects (
+    UserId INTEGER,
+    ProjectId INTEGER,
+    PRIMARY KEY (UserId, ProjectId),
+    FOREIGN KEY (UserId) REFERENCES Users (Id),
+    FOREIGN KEY (ProjectId) REFERENCES Projects (Id)
+);
+
+-- Ajout des relations entre les utilisateurs et les projets
+INSERT INTO UserProjects (UserId, ProjectId)
+VALUES (1,1),
+       (1,3),
+       (2,1),
+       (2,2),
+       (3,1),
+       (3,3);
+
 
 -- Inserting the provided sample data
 -- Projects
@@ -71,3 +96,10 @@ INSERT INTO Comments (Content, DateCreation, IdCard, UserName) VALUES ('Content 
 INSERT INTO Comments (Content, DateCreation, IdCard, UserName) VALUES ('Content Comment 1', datetime('now'), 4, 'User');
 INSERT INTO Comments (Content, DateCreation, IdCard, UserName) VALUES ('Content Comment 2', datetime('now'), 4, 'User');
 INSERT INTO Comments (Content, DateCreation, IdCard, UserName) VALUES ('Content Comment 1', datetime('now'), 5, 'User');
+
+-- Users
+INSERT INTO Users (UserName, Password) VALUES ('Ahmed' , ''     );
+INSERT INTO Users (UserName, Password) VALUES ('Idir'  , ''     );
+INSERT INTO Users (UserName, Password) VALUES ('Nadine', ''     );
+INSERT INTO Users (UserName, Password) VALUES ('Albert', 'Camus');
+INSERT INTO Users (UserName, Password) VALUES ('Victor', 'Hugo' );
