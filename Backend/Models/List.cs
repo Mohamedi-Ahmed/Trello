@@ -5,9 +5,9 @@ namespace TrelloMVC.Models;
 
 public partial class List
 {
-    public int IdList { get; set; }
+    public int Id { get; set; }
 
-    public string? NameList { get; set; }
+    public string Name { get; set; } = null!;
 
     public int? IdProject { get; set; }
 

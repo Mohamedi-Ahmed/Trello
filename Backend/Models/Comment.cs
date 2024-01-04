@@ -7,11 +7,13 @@ public partial class Comment
 {
     public int Id { get; set; }
 
-    public string? Content { get; set; }
+    public string Content { get; set; } = null!;
 
-    public DateOnly? CreationDate { get; set; }
+    public DateOnly DateCreation { get; set; }
 
-    public int IdCard { get; set; }
+    public int? IdCard { get; set; }
 
-    public virtual Card IdCardNavigation { get; set; } = null!;
+    public string UserName { get; set; } = null!;
+
+    public virtual Card? IdCardNavigation { get; set; }
 }

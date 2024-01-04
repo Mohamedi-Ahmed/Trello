@@ -11,11 +11,11 @@ public partial class Card
 
     public string? Description { get; set; }
 
-    public DateOnly? CreationDate { get; set; }
+    public DateOnly DateCreation { get; set; }
 
-    public int IdList { get; set; }
+    public int? IdList { get; set; }
 
     public virtual ICollection<Comment> Comments { get; set; } = new List<Comment>();
 
-    public virtual List IdListNavigation { get; set; } = null!;
+    public virtual List? IdListNavigation { get; set; }
 }

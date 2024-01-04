@@ -31,48 +31,17 @@ public partial class DbTrelloContext : DbContext
     {
         modelBuilder.Entity<Card>(entity =>
         {
-            entity.Property(e => e.CreationDate)
-                .HasColumnType("DATE")
-                .HasColumnName("Creation_Date");
-            entity.Property(e => e.IdList)
-                .HasColumnType("INT")
-                .HasColumnName("Id_List");
-
-            entity.HasOne(d => d.IdListNavigation).WithMany(p => p.Cards)
-                .HasForeignKey(d => d.IdList)
-                .OnDelete(DeleteBehavior.ClientSetNull);
+            entity.HasOne(d => d.IdListNavigation).WithMany(p => p.Cards).HasForeignKey(d => d.IdList);
         });
 
         modelBuilder.Entity<Comment>(entity =>
         {
-            entity.Property(e => e.CreationDate)
-                .HasColumnType("DATE")
-                .HasColumnName("Creation_Date");
-            entity.Property(e => e.IdCard)
-                .HasColumnType("INT")
-                .HasColumnName("Id_Card");
-
-            entity.HasOne(d => d.IdCardNavigation).WithMany(p => p.Comments)
-                .HasForeignKey(d => d.IdCard)
-                .OnDelete(DeleteBehavior.ClientSetNull);
+            entity.HasOne(d => d.IdCardNavigation).WithMany(p => p.Comments).HasForeignKey(d => d.IdCard);
         });
 
         modelBuilder.Entity<List>(entity =>
         {
-            entity.HasKey(e => e.IdList);
-
-            entity.Property(e => e.IdList).HasColumnName("Id_List");
-            entity.Property(e => e.IdProject).HasColumnName("Id_Project");
-            entity.Property(e => e.NameList).HasColumnName("Name_List");
-
             entity.HasOne(d => d.IdProjectNavigation).WithMany(p => p.Lists).HasForeignKey(d => d.IdProject);
-        });
-
-        modelBuilder.Entity<Project>(entity =>
-        {
-            entity.Property(e => e.CreationDate)
-                .HasColumnType("DATE")
-                .HasColumnName("Creation_Date");
         });
 
         OnModelCreatingPartial(modelBuilder);

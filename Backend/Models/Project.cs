@@ -11,7 +11,7 @@ public partial class Project
 
     public string? Description { get; set; }
 
-    public DateOnly? CreationDate { get; set; }
+    public DateOnly DateCreation { get; set; }
 
     public virtual ICollection<List> Lists { get; set; } = new List<List>();
 }
