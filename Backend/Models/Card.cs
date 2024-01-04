@@ -11,7 +11,7 @@ public partial class Card
 
     public string? Description { get; set; }
 
-    public DateOnly DateCreation { get; set; }
+    public DateTime DateCreation { get; set; }
 
     public int? IdList { get; set; }
 

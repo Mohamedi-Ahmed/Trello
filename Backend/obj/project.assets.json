@@ -2532,11 +2532,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ib\\Desktop\\Trello_Back_Main\\Trello\\Backend\\TrelloMVC.csproj",
+      "projectUniqueName": "C:\\Users\\ib\\Desktop\\Trello_Main\\Backend\\TrelloMVC.csproj",
       "projectName": "TrelloMVC",
-      "projectPath": "C:\\Users\\ib\\Desktop\\Trello_Back_Main\\Trello\\Backend\\TrelloMVC.csproj",
+      "projectPath": "C:\\Users\\ib\\Desktop\\Trello_Main\\Backend\\TrelloMVC.csproj",
       "packagesPath": "C:\\Users\\ib\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ib\\Desktop\\Trello_Back_Main\\Trello\\Backend\\obj\\",
+      "outputPath": "C:\\Users\\ib\\Desktop\\Trello_Main\\Backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

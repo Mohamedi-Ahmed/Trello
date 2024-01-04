@@ -9,7 +9,7 @@ public partial class Comment
 
     public string Content { get; set; } = null!;
 
-    public DateOnly DateCreation { get; set; }
+    public DateTime DateCreation { get; set; }
 
     public int? IdCard { get; set; }
 

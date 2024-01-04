@@ -31,28 +31,17 @@ public partial class DbTrelloContext : DbContext
     {
         modelBuilder.Entity<Card>(entity =>
         {
-            entity.Property(e => e.Id).ValueGeneratedNever();
-
             entity.HasOne(d => d.IdListNavigation).WithMany(p => p.Cards).HasForeignKey(d => d.IdList);
         });
 
         modelBuilder.Entity<Comment>(entity =>
         {
-            entity.Property(e => e.Id).ValueGeneratedNever();
-
             entity.HasOne(d => d.IdCardNavigation).WithMany(p => p.Comments).HasForeignKey(d => d.IdCard);
         });
 
         modelBuilder.Entity<List>(entity =>
         {
-            entity.Property(e => e.Id).ValueGeneratedNever();
-
             entity.HasOne(d => d.IdProjectNavigation).WithMany(p => p.Lists).HasForeignKey(d => d.IdProject);
-        });
-
-        modelBuilder.Entity<Project>(entity =>
-        {
-            entity.Property(e => e.Id).ValueGeneratedNever();
         });
 
         OnModelCreatingPartial(modelBuilder);
