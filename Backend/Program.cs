@@ -5,8 +5,20 @@ var builder = WebApplication.CreateBuilder(args);
 // Ajouter un DBContext
 builder.Services.AddDbContext<DbTrelloContext>();
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+// Ajouter la configuration CORS pour autoriser les requêtes du front-end Angular
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "AllowAngularApp",
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:4200")
+                   .AllowAnyHeader()
+                   .AllowAnyMethod();
+        });
+});
+
+// Add services to the container with no Views
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
@@ -22,6 +34,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+// Activer CORS
+app.UseCors("AllowAngularApp");
 
 app.UseAuthorization();
 

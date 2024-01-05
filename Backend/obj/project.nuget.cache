@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1RA6eqIeutTAVKma2BywZR7xlojisv9rfAmsoDP9nd6Uv7IXCqJlYHtnBbua8OGzh226T/opo1U0rHDf8GGlbQ==",
+  "dgSpecHash": "6z+rk/6mRRvMDtPPVQz2l2EizNXFQ1PO61K6+KGnDtdjqjx+dQbcjfulPePjUPUT8kwTrq1mK9MNAeQLrlGLPg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ib\\Desktop\\Trello_Main\\Backend\\TrelloMVC.csproj",
+  "projectFilePath": "C:\\Users\\ib\\Desktop\\Trello\\Backend\\TrelloMVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ib\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\ib\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",

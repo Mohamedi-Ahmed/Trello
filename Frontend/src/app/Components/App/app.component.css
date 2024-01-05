@@ -1,0 +1,51 @@
+.accueil {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -150px 0 0 -150px;
+	width:300px;
+	height:300px;
+}
+.accueil h1 { color: #fff;
+    text-shadow: 0 0 10px rgba(0,0,0,0.3);
+    letter-spacing:1px;
+    text-align:center; }
+
+
+.user-logged-in {
+    position: fixed; /* Utilisez fixed au lieu de absolute pour couvrir tout l'écran */
+    top: 150px; /* Définissez top à 0 pour commencer au sommet de l'écran */
+    left: 150px; /* Définissez left à 0 pour commencer à gauche de l'écran */
+    width: 100%; /* La largeur doit être de 100% pour couvrir toute la largeur de l'écran */
+    height: 100%; /* La hauteur doit être de 100% pour couvrir toute la hauteur de l'écran */
+}
+
+.user-logged-in h1{
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0,0,0,0.3);
+    letter-spacing:1px;
+    text-align:left;
+    margin-left: 10px;
+}
+
+
+input {
+	width: 100%;
+	margin-bottom: 10px;
+	background: rgba(0,0,0,0.3);
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 13px;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+	-webkit-transition: box-shadow .5s ease;
+	-moz-transition: box-shadow .5s ease;
+	-o-transition: box-shadow .5s ease;
+	-ms-transition: box-shadow .5s ease;
+	transition: box-shadow .5s ease;
+}
+input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }

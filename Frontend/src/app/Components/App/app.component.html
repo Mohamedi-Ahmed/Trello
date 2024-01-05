@@ -1,0 +1,19 @@
+<div class="accueil" [class.user-logged-in]="this.UserService.user">
+  <h1>Trello</h1>
+  <div *ngIf="this.UserService.user; else elseBlock">
+      <app-projects></app-projects>
+  </div>
+  <ng-template #elseBlock>
+    <div>
+      <input type="text"
+      placeholder="Entrez un nom d'utilisateur"
+      [(ngModel)]="this.username"
+      (keyup.enter)="this.UserService.login(this.username)"/>
+
+      <button type="submit" class="btn btn-primary btn-block btn-large"
+      (click)="this.UserService.login(this.username)"
+      >Connexion</button>
+    </div>
+  </ng-template>
+
+</div>
