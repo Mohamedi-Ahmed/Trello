@@ -31,6 +31,7 @@ jobs:
         run: |
           npm install
           npx ng build --output-path=dist/ --configuration production
+          ls
           ls dist/ # or `dir dist\` on Windows
         working-directory: ./FrontEnd
 
