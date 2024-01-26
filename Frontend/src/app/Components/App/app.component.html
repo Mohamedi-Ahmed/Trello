@@ -1,85 +1,108 @@
 <!-- Section Navbar -->
-<app-navbar (sectionNavigate)="scrollTo($event)" (loginClicked)="openLoginForm()"></app-navbar>
+<app-navbar (sectionNavigate)="scrollTo($event)" (loginClicked)="openLoginForm()"></app-navbar> 
 
-<div class = "container">
+<div class = "container"> 
 
-  <ng-container *ngIf="!isAuthenticated; else userHomePage">
+ <ng-container *ngIf="!isAuthenticated; else userHomePage">
 
-    <!-- Section Sidebar -->
-    <div class="sidebar">
-      <div class="line"></div>
-      <button (click)="scrollTo('accueil-inscription')" [ngClass]="{'active': currentSection === 'accueil-inscription'}">⚪️</button>
-      <button (click)="scrollTo('initiation')" [ngClass]="{'active': currentSection === 'initiation'}">⚪️</button>
-      <button (click)="scrollTo('trello-action')" [ngClass]="{'active': currentSection === 'trello-action'}">⚪️</button>
-      <button (click)="scrollTo('temoignages')" [ngClass]="{'active': currentSection === 'temoignages'}">⚪️</button>
-      <button (click)="scrollTo('a-propos')" [ngClass]="{'active': currentSection === 'a-propos'}">⚪️</button>
-      <div class="line"></div>
+   <!-- Section Sidebar -->
+   <div class="sidebar">
+     <!-- <div class="line"></div> -->
+     <button (click)="scrollTo('accueil-inscription')" [ngClass]="{'active': currentSection === 'accueil-inscription'}">⚪️</button>
+     <button (click)="scrollTo('initiation')" [ngClass]="{'active': currentSection === 'initiation'}">⚪️</button>
+     <button (click)="scrollTo('trello-action')" [ngClass]="{'active': currentSection === 'trello-action'}">⚪️</button>
+     <button (click)="scrollTo('temoignages')" [ngClass]="{'active': currentSection === 'temoignages'}">⚪️</button>
+     <button (click)="scrollTo('a-propos')" [ngClass]="{'active': currentSection === 'a-propos'}">⚪️</button>
+     <!-- <div class="line"></div> -->
+   </div>
+
+   <!-- Section Inscription  & Lien Connexion-->
+   <div id="accueil-inscription" class="full-page-section" (mouseenter)="setCurrentSection('accueil-inscription')">
+     <h2>Inscription</h2>
+     <div class="inscription-content">
+       <p>Bienvenue sur notre plateforme Trello. Inscrivez-vous dès maintenant pour profiter de tous nos services.</p>
+       
+       <!-- Conteneur pour le champ de saisie et le bouton -->
+       <div class="email-form">
+         <div class="input-container">
+           <input type="email" id="userEmail" name="userEmail" [(ngModel)]="userEmail" required (keyup.enter)="openRegistrationForm()">
+           <div class="error-msg" [class.active]="emailErrorMsg">{{ emailErrorMsg }}</div>
+         </div>
+         <button (click)="openRegistrationForm()">S'inscrire</button>
+       </div>
+       <p>Vous avez déjà un compte ? <a href="#" (click)="openLoginForm()">Connectez-vous ici</a></p>
+       </div>
+   </div>
+
+   <!-- Section Tuto -->
+   <div id="initiation"  class="full-page-section" (mouseenter)="setCurrentSection('initiation')">  <h2>Initiation à Trello</h2>
+     <h1>Un centre de productivité</h1>
+     <div class="initiation-content">
+       <p>Simples, flexibles et puissants. Les tableaux, les listes et les cartes suffisent pour obtenir une vue claire de qui fait quoi et des tâches qu'il vous reste à faire.</p>
+       <h2>Projets</h2>
+       <div class="tuto-projects">
+         <p>Les tableaux Trello garantissent l'organisation des tâches et font avancer le travail. Découvrez en un coup d'oeil toutes les tâches à réaliser et terminées.</p>
+       </div>
+       <h2>Listes</h2>
+       <div class="tuto-lists">
+         <p>Définissez les différentes phases d'une tâche. Au début, ne cherchez pas plus loin que "A faire", "En cours" et "Terminé". Vous pouvez aussi élaborer un flux de travail personnalisé pour répondre aux besoins de votre équipe. Il n'y a pas de mauvaise façon de faire dans TRELLO.</p>
+       </div>
+       <h2>Cartes</h2>
+       <div class="tuto-cards">
+         <p>Les cartes représentent des tâches et des idées, et peuvent contenir toutes les informations nécessaires pour faire votre travail. A mesure que vous avancez, déplacez les cartes dans les listes pour afficher leur état.</p>
+       </div>
+       
+     </div>
+   </div>
+
+   <!-- Section Action -->
+   <div id="trello-action" class="full-page-section" (mouseenter)="setCurrentSection('trello-action')">
+     <h2>Trello en action</h2>
+     <h1>Des flux de travail pour les projets de toutes envergures</h1>
+    <div class="trello-action-content">
+     <h3>Gestion de projet</h3>
+     <!-- <P>Organisez les tâche, respestez les délais et maintenez les nembres de l'équipe en phase grâce à Trello.</P>  -->
+     <h3>Réunions</h3>
+      <!-- <P>Donnez à votre équipe les moyens d'organiser des réunions plus productives, plus dynamiques et, plus amusantes.</P>  -->
+     <h3>Intégration</h3>
+      <!-- <p>Trello présente visuellement les tâches, les ressources et le suivi de l'avancement.L'integration à une nouvelle entreprise ou à un nouveau projet se fait ainsi en un clin d'oeil.</p>  -->
+     <h3>Gestion des tâches</h3>
+     <!-- <p>Utilisez Trello pour suivre, gérer, réaliser et assembler des tâches telles un puzzlz, et assurez le succès des projets de votre équipe à chaque fois.</p>  -->
     </div>
+   </div>
 
-    <!-- Section Inscription  & Lien Connexion-->
-    <div id="accueil-inscription" class="full-page-section" (mouseenter)="setCurrentSection('accueil-inscription')">
-      <h2>Inscription</h2>
-      <div class="inscription-content">
-        <p>Bienvenue sur notre plateforme Trello. Inscrivez-vous dès maintenant pour profiter de tous nos services.</p>
-        
-        <!-- Conteneur pour le champ de saisie et le bouton -->
-        <div class="email-form">
-          <div class="input-container">
-            <input type="email" id="userEmail" name="userEmail" [(ngModel)]="userEmail" required (keyup.enter)="openRegistrationForm()">
-            <div class="error-msg" [class.active]="emailErrorMsg">{{ emailErrorMsg }}</div>
-          </div>
-          <button (click)="openRegistrationForm()">S'inscrire</button>
-        </div>
-        <p>Vous avez déjà un compte ? <a href="#" (click)="openLoginForm()">Connectez-vous ici</a></p>
-        </div>
-    </div>
+   <!-- Section Témoignage -->
+   <div id="temoignages" class="full-page-section" (mouseenter)="setCurrentSection('temoignages')"> 
+     <h2>Témoignages</h2> 
+     <div class="temoignages-content"> 
+       <div class="temoignage"> 
+         <p>Trello a vraiment simplifié la gestion de projets pour notre équipe. C'est un outil incroyablement efficace.</p> 
+          <p><strong>John Doe</strong>, Chef de projet</p> 
+       </div> 
+       <div class="temoignage"> 
+         <p>Je recommande Trello à tous ceux qui veulent organiser leur travail de manière collaborative. C'est un jeu d'enfant.</p>
+         <p><strong>Alice Smith</strong>, Freelancer</p>
+       </div>
+        <div class="temoignage"> 
+         <p>Trello a changé la donne pour notre entreprise. Nous sommes plus productifs que jamais.</p> 
+          <p><strong>Robert Johnson</strong>, PDG</p> 
+        </div> 
+      </div> 
+    </div> 
 
-    <!-- Section Tuto -->
-    <div id="initiation"  class="full-page-section" (mouseenter)="setCurrentSection('initiation')">  <h2>Initiation à Trello</h2>
-      <div class="initiation-content">
-        <!-- Contenu de l'initiation à Trello -->
-      </div>
-    </div>
-
-    <!-- Section Action -->
-    <div id="trello-action" class="full-page-section" (mouseenter)="setCurrentSection('trello-action')">
-      <h2>Trello en action</h2>
-      <div class="trello-action-content">
-        <!-- Contenu de Trello en action -->
-      </div>
-    </div>
-
-    <!-- Section Témoignage -->
-    <div id="temoignages" class="full-page-section" (mouseenter)="setCurrentSection('temoignages')">
-      <h2>Témoignages</h2>
-      <div class="temoignages-content">
-        <div class="temoignage">
-          <p>Trello a vraiment simplifié la gestion de projets pour notre équipe. C'est un outil incroyablement efficace.</p>
-          <p><strong>John Doe</strong>, Chef de projet</p>
-        </div>
-        <div class="temoignage">
-          <p>Je recommande Trello à tous ceux qui veulent organiser leur travail de manière collaborative. C'est un jeu d'enfant.</p>
-          <p><strong>Alice Smith</strong>, Freelancer</p>
-        </div>
-        <div class="temoignage">
-          <p>Trello a changé la donne pour notre entreprise. Nous sommes plus productifs que jamais.</p>
-          <p><strong>Robert Johnson</strong>, PDG</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section A propos -->
-    <div id="a-propos" class="full-page-section" (mouseenter)="setCurrentSection('a-propos')">
-      <h2>Trello en action</h2>
-      <div class="a-propos-content">
-        <!-- Contenu de Trello en action -->
-      </div>
-    </div>
-  
-  </ng-container>
-</div>
+   <!-- Section A propos -->
+    <div id="a-propos" class="full-page-section" (mouseenter)="setCurrentSection('a-propos')"> 
+     <h2>À Propos</h2> 
+     <div class="a-propos-content"> 
+       <h1>Tout comme Trello, les méthodes de travail de votre équipe sont uniques</h1> 
+       <p>Trello est l'outil flexible de gestion du travail dans lequel les équipes peuvent créer des plans, collaborer sur des projets, organiser les flux de travail et suivre l'avancement de façon visuelle, productive et enrichissante. Du brainstorming à l'exécution en passant par la planification, Trello gère toutes les étapes importantes et les tâches quotidiennes liées à la collaboration et à la réalisation du travail.</p> 
+     </div> 
+   </div> 
+ 
+ </ng-container> 
+</div> 
 
 
-<ng-template #userHomePage>
-  <app-user-home-page></app-user-home-page>
-</ng-template>
+<ng-template #userHomePage> 
+  <app-user-home-page></app-user-home-page> 
+</ng-template>  
