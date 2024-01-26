@@ -30,7 +30,7 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install
-          npx ng build --output-path=dist/ --configuration production
+          ng build --output-path=dist/ --configuration production
           ls dist/ # or `dir dist\` on Windows
         working-directory: ./Frontend
 
