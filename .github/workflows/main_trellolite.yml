@@ -31,7 +31,8 @@ jobs:
         run: |
           npm install
           npx ng build --output-path=dist/ --configuration production
-          ls dist/ # or `dir dist\` on Windows
+          ls
+          dir dist\ # or `dir dist\` on Windows
         working-directory: ./FrontEnd
 
       - name: Upload dist folder as artifact for deployment job
