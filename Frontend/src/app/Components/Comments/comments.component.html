@@ -1,0 +1,20 @@
+<div *ngFor="let comment of comments" class="comment">
+    <div class="comment-header">
+      <span class="comment-creator">{{ comment.user.userName || 'Anonyme' }}</span>
+      <span class="comment-date">{{ comment.dateCreation | date:'medium' }}</span>
+      <div class="comment-actions">
+        <button #editButton class="options-button" (click)="openOptionsDialog(comment, editButton)">...</button>
+      </div>
+    </div>
+    <p class="comment-text">{{ comment.content }}</p>
+</div>
+  
+<!-- Formulaire pour ajouter un commentaire -->
+<div class="add-comment">
+<h4>Ajouter un commentaire</h4>
+<form (ngSubmit)="createComment()">
+    <textarea [(ngModel)]="newComment.text" name="text" placeholder="Votre commentaire" required></textarea>
+    <button type="submit" #submitButton>Poster</button>
+</form>
+</div>
+  

@@ -1,0 +1,20 @@
+<nav class="navbar">
+    <a class="nav-logo" href="#" (click)="refreshPageandNavigateToHome()">Trello</a>
+    <!-- Onglets pour l'utilisateur non connecté -->
+    <ul class="nav-tabs" *ngIf="!isAuthenticated">
+        <li><a href="#" (click)="navigateToSection('initiation')">Initiation</a></li>
+        <li><a href="#" (click)="navigateToSection('trello-action')">En Action</a></li>
+        <li><a href="#" (click)="navigateToSection('temoignages')">Témoignages</a></li>
+        <li><a href="#" (click)="navigateToSection('a-propos')">À Propos</a></li>
+    </ul>
+    <!-- Onglets pour l'utilisateur connecté -->
+    <ul class="nav-tabs" *ngIf="isAuthenticated">
+        <li><a href="/dashboard">Tableau de bord</a></li>
+        <li><a href="/recent">Récent</a></li>
+        <li><a href="/favorites">Favoris</a></li>
+    </ul>
+    <div *ngIf="isAuthenticated">
+        <button class="btn-login" *ngIf="isAuthenticated" (click)="logout()">Déconnexion</button> 
+    </div>
+    <button class="btn-login" *ngIf="!isAuthenticated" (click)="emitLoginEvent()">Connexion</button> 
+</nav>

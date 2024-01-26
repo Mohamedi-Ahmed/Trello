@@ -1,0 +1,23 @@
+<div class="page-container">
+    <div class="sidebar">
+        <app-sidebar-project 
+        (projectSelected)="onProjectSelect($event)"
+        [projectName]="projectName" 
+        ></app-sidebar-project>
+    </div>
+    <div class="content-lists">
+        <ng-container *ngIf="isProjectSelected; else welcomeMessage">
+            <div class="list-container">
+                <app-lists  
+                *ngIf="selectedProject" 
+                [projectId]="selectedProject.id" 
+                [projectName]="selectedProject.name" 
+                [projectDescription] = "selectedProject.description"
+                ></app-lists>        
+            </div>
+        </ng-container>
+        <ng-template [routerLink]="['/HomePage']"  routerLinkActive="active" #welcomeMessage>
+            <p>Bienvenue sur la page d'accueil ! Veuillez sélectionner un projet.</p>
+        </ng-template>
+    </div>
+</div>

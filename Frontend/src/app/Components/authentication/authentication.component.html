@@ -1,0 +1,21 @@
+<div class="modal">
+    <button class="close-button" (click)="closeLoginForm()">&times;</button>
+    <h2>Connexion</h2>
+  
+    <form (ngSubmit)="performLogin()">
+      <!-- Username Field -->
+      <label for="username">Nom d'utilisateur :</label>
+      <input type="text" id="username" name="username" [(ngModel)]="username" required>
+  
+      <!-- Password Field -->
+      <label for="password">Mot de passe :</label>
+      <input type="password" id="password" name="password" [(ngModel)]="password" required>
+  
+      <!-- Error Message -->
+      <div *ngIf="loginError" class="error-message">{{ loginErrorMessage }}</div>
+  
+      <!-- Submit Button -->
+      <button type="submit">Se connecter</button>
+    </form>
+  </div>
+  

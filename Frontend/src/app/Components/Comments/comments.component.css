@@ -1,0 +1,62 @@
+.comments {
+    margin-top: 20px;
+  }
+  
+  .comment {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+  }
+  
+  .comment-creator {
+    color: #007bff; /* Couleur du nom du créateur */
+  }
+  
+  .comment-date {
+    color: #777; /* Couleur de la date */
+  }
+  
+  .comment-text {
+    margin-top: 5px;
+  }
+  
+  .add-comment {
+    margin-top: 20px;
+  }
+  
+  .add-comment h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  textarea {
+    width: 100%;
+    height: 100px;
+    resize: vertical;
+  }
+  
+  button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3; /* Couleur au survol du bouton */
+  }
+  
+  .custom-dialog .mat-dialog-container {
+    width: 100px !important; /* Largeur réduite */
+    height: 400px !important; /* Hauteur augmentée */
+  }

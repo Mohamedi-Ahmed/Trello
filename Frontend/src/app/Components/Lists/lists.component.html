@@ -1,0 +1,51 @@
+<div class="project-container">
+  <div class="project-header">
+    <!-- Affiche le titre -->
+    <h2>{{ projectName }}</h2>
+    <div class="project-actions">
+      <button class="edit-btn" (click)="toggleDropdown()"><i class="fas fa-pencil-alt"></i></button>
+          <!-- Menu déroulant -->
+    <div *ngIf="showDropdown" class="dropdown">
+      <button (click)="editTitle()">Modifier le titre</button>
+      <button (click)="editDescription()">Modifier la description</button>
+    </div>
+      <button class="favorite-btn" (click)="toggleProjectsFavorite()"><i class="fa fa-star"></i></button>
+      <button class="delete-btn" (click)="deleteProject(projectId)"><i class="fa fa-trash"></i></button>
+    </div>
+  </div>
+
+  <!-- Affichage de la description -->
+  <div class="project-description">
+    <p>{{ projectDescription || 'Description : (vide)' }}</p>
+  </div>
+</div>
+
+<div class="project-lists">
+  <div class="lists-container" *ngIf="lists">
+      <div class="list-cell" 
+      *ngFor="let list of lists" 
+      [class.active]="list.active"
+      (click)="toggleListSize(list)">
+          <div class="list-header">
+              <h3>{{ list.name }}</h3>
+              <div class="list-actions">
+                  <button class="edit-btn" (click)="editList(list)"><i class="fas fa-pencil-alt"></i></button>
+                  <button class="favorite-btn" (click)="toggleListFavorite(list)"><i class="fa fa-star"></i></button>
+                  <button class="delete-btn" (click)="deleteList(list)"><i class="fa fa-trash"></i></button>
+              </div>
+          </div>
+          <p *ngIf="list.description">{{ list.description }}</p>
+          <!-- Ajout du composant app-cards -->
+          <app-cards 
+          [listId]="list.id"
+          ></app-cards>
+      </div>
+
+      <div class="list-cell new-list-cell">
+          <form (submit)="createNewList()">
+              <input type="text" [(ngModel)]="newListName" placeholder="Nom de la liste" name="newListName" />
+              <button type="submit" class="create-list-btn">+</button>
+          </form>
+      </div>
+  </div>
+</div>

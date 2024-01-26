@@ -1,0 +1,47 @@
+<!-- registration-modal.component.html -->
+<div class="modal">
+  <button class="close-button" (click)="closeModal()">&times;</button>
+  <h2>Inscription</h2>
+
+  <!-- Affichez les champs de saisie si le formulaire n'a pas encore été soumis -->
+  <form (ngSubmit)="onSubmit()" *ngIf="!registrationSuccess">
+    <!-- First Name Field -->
+    <label for="firstName">Prénom :</label>
+    <input type="text" id="firstName" name="firstName" [(ngModel)]="firstName" required>
+
+    <!-- Family Name Field -->
+    <label for="familyName">Nom de famille :</label>
+    <input type="text" id="familyName" name="familyName" [(ngModel)]="lastName" required>
+
+    <!-- Nickname Field -->
+    <label for="nickName">(*) Pseudonyme :<span class="required"></span></label>
+    <input type="text" id="nickName" name="nickName" [(ngModel)]="nickName" required (change)="onNicknameChange()">
+    <div *ngIf="nickNameError" class="error-message">Le pseudonyme est obligatoire.</div>
+    <div *ngIf="nicknameTakenError" class="error-message">Ce pseudonyme est déjà pris.</div>
+
+    <!-- Email Field -->
+    <label for="email">(*) Adresse e-mail :<span class="required"></span></label>
+    <input type="email" id="email" name="email" [(ngModel)]="userEmail" required (ngModelChange)="onEmailChange()">
+    <div *ngIf="emailError" class="error-message">L'adresse e-mail est obligatoire.</div>
+    <div *ngIf="emailTakenError" class="error-message">Cette adresse e-mail est déjà enregistrée.</div>
+    
+
+    <!-- Password Field -->
+    <label for="password">(*) Mot de passe :<span class="required"></span></label>
+    <input type="password" id="password" name="password" [(ngModel)]="password" required>
+    <div *ngIf="passwordError" class="error-message">Le mot de passe est obligatoire.</div>
+
+    <!-- Submit Button -->
+    <button type="submit">S'inscrire</button>
+  </form>
+
+  <!-- Affichez le message de confirmation s'il y a eu succès d'inscription -->
+  <div *ngIf="registrationSuccess" class="success-message">
+    Inscription réussie ! Merci de nous rejoindre.
+    <br><br>N'oubliez pas de valider votre adresse e-mail ! 
+    <br>Un mail de validation a été envoyé à votre adresse d'inscription !
+  </div>
+
+  <!-- Champ obligatoire -->
+  <div class="required-text" *ngIf="!registrationSuccess">(*) Champ obligatoire</div>
+</div>

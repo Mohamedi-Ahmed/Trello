@@ -1,0 +1,51 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: #333;
+    color: #fff;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+}
+
+.nav-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white; /* Match the color of your navbar */
+    text-decoration: none; /* Remove underline */
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 75px; /* Adjust this value as needed for space */
+}
+
+.nav-tabs {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-grow: 1; /* This ensures the tabs take up available space */
+}
+
+.nav-tabs li {
+    margin-right: 40px;
+}
+
+.nav-tabs a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.btn-login {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-login:hover {
+    background-color: #2980b9;
+}

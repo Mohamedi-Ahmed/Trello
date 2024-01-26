@@ -1,0 +1,28 @@
+<div *ngFor="let card of cards">
+    <div *ngIf="card" class="card-cell" [ngStyle]="{'background-color': card.backgroundColor}">
+        <div class="card-header">
+            <h4>{{ card.title }}</h4>
+            <span class="card-date">{{ card.dateCreation | date:'medium' }}</span>
+        </div>
+        <p *ngIf="card.description">{{ card.description }}</p>
+        <p class="card-creator">Créé par : <span class="creator-name">{{ card?.creator || 'Inconnu' }}</span></p>
+        <button  #editButton class="card-button" (click)="editCard(card, editButton)">Modifier</button>
+        <button class="card-button" (click)="deleteCard(card)">Supprimer</button>
+        <!-- Séparateur -->
+        <hr>
+        <!-- Balise pour le composant app-comments -->
+        <app-comments  [cardId]="card.id"></app-comments>
+    </div>
+</div>
+
+
+
+<div class="new-card-form">
+    <h3>Créer une nouvelle carte</h3>
+    <form (ngSubmit)="createCard()">
+        <input type="text" [(ngModel)]="newCard.title" name="title" placeholder="Titre" required>
+        <textarea [(ngModel)]="newCard.description" name="description" placeholder="Description"></textarea>
+        <input type="color" [(ngModel)]="newCard.backgroundColor" name="backgroundColor" title="Choisir la couleur de fond">
+        <button type="submit">Créer</button>
+    </form>
+</div>

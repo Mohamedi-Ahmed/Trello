@@ -1,0 +1,103 @@
+/* registration-modal.component.css */
+@media (max-width: 700px) {
+    .modal {
+      width: 90%;
+      height: auto; /* Ajuste la hauteur en fonction du contenu */
+    }
+  }
+
+.modal {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px; /* Bords arrondis */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 600px; /* Largeur du carré */
+    height: 600px; /* Hauteur du carré */
+    margin: auto; /* Pour le centrage horizontal */
+    position: fixed; /* Positionnement fixe */
+    top: 50%; /* Centrage vertical */
+    left: 50%; /* Centrage horizontal */
+    transform: translate(-50%, -50%); /* Ajustement fin pour le centrage parfait */
+    overflow-y: auto; /* Permettre le défilement vertical si le contenu dépasse */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrage des éléments à l'intérieur du modal */
+    align-items: center; /* Alignement horizontal des éléments à l'intérieur */
+    text-align: center;
+    z-index: 1000; /* Assurez-vous qu'il est au-dessus des autres éléments */
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+/* Styles pour les éléments internes du modal */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 20px); /* 100% moins le padding horizontal */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+button[type="submit"] {
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #0079bf;
+    box-shadow: 0 0 5px rgba(0, 121, 191, 0.5);
+}
+
+/* Styles pour le bouton de soumission */
+button[type="submit"] {
+    width: calc(100% - 20px); /* 100% moins le padding horizontal */
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button[type="submit"]:hover {
+    background-color: #005a8e;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    display: flex;
+    margin-top: -19px;
+  }

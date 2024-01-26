@@ -1,0 +1,26 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        ".vscode": true,
+        "Frontend/.angular/cache/17.0.9": true,
+        "Frontend/.vscode": true,
+        "Frontend/node_modules": true,
+        "Frontend/angular.json": true,
+        "Frontend/package-lock.json": true,
+        "Frontend/package.json": true
+    },
+    "hide-files.files": [
+        ".vscode",
+        "Frontend/.angular/cache/17.0.9",
+        "Frontend/.vscode",
+        "Frontend/node_modules",
+        "Frontend/angular.json",
+        "Frontend/package-lock.json",
+        "Frontend/package.json"
+    ]
+}

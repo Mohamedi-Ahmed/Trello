@@ -1,0 +1,31 @@
+<div class="sidebar full-height-sidebar">
+  <!-- Titre "Mes projets" -->
+  <h2 class="sidebar-title">Mes projets</h2>
+
+  <!-- Liste des projets existants -->
+  <ul class="projects-list">
+    <li *ngFor="let project of getDisplayedProjects()">
+      <a href="#">
+        <div class="project-box" 
+        (click)="onSelectProject(project)"
+        [class.selected]="projectId === project.id"
+        >
+          {{ project.name }}
+          <button class="delete-btn" (click)="deleteProject($event, project.id)">X</button>        </div>
+      </a>
+    </li>
+  </ul>
+
+  <!-- Boutons de navigation -->
+  <div class="navigation">
+      <button (click)="previousGroup()" [disabled]="currentGroup === 0" class="nav-btn">&#8592;</button>
+      <button (click)="nextGroup()" [disabled]="currentGroup === getTotalGroups() - 1" class="nav-btn">&#8594;</button>
+  </div>
+
+  <!-- Formulaire de création de projet -->
+  <div class="create-project-form">
+      <input type="text" [(ngModel)]="newProjectName" placeholder="Nom du projet" class="project-input">
+      <textarea [(ngModel)]="newProjectDescription" placeholder="Description (facultative)" class="project-textarea"></textarea>
+      <button (click)="createNewProject()" class="create-project-btn">Créer</button>
+  </div>
+</div>

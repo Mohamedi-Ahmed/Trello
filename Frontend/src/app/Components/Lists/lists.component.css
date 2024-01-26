@@ -1,0 +1,148 @@
+/* Styles généraux */
+.project-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 90px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 20px;
+  margin-top: 50px;
+
+}
+
+.project-actions {
+  display: flex;
+  align-items: center;
+}
+
+.project-description {
+  margin-top: 10px;
+}
+
+.edit-btn,
+.favorite-btn,
+.delete-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  margin-right: 10px;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.edit-btn:hover,
+.favorite-btn:hover,
+.delete-btn:hover {
+  color: #0079bf;
+}
+
+/* Styles pour la liste des projets */
+.project-lists {
+  margin-left: 20px;
+  display: flex;
+  overflow-x: auto; /* Activation du défilement horizontal */
+  margin-top: 20px;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-actions {
+  display: flex;
+  align-items: center;
+}
+
+/* Styles pour les boutons */
+.edit-btn, .favorite-btn, .delete-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  color: #333;
+}
+
+.lists-container {
+  display: flex;
+  width: 100%;
+}
+
+.list-cell {
+  flex: 0 0 auto;
+  padding: 10px;
+  margin-right: 20px;
+  width: 250px; /* Taille par défaut */
+  height: 250px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  overflow-y: auto; /* Active le défilement vertical */
+  transition: all 0.3s ease;
+}
+
+.list-cell:hover,
+.list-cell:focus-within {
+  width: 400px; /* Taille agrandie */
+  height: 500px; /* Hauteur agrandie si nécessaire */
+}
+
+.list-cell.active {
+  /* Ajustez selon le besoin, par exemple : */
+  height: 630px; /* Hauteur agrandie */
+  width: 400px;
+  overflow-y: scroll; /* Assure le défilement si le contenu dépasse */
+}
+
+.new-list-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  padding: 10px;
+  width: 250px;
+  height: 250px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-right: 20px;
+}
+
+.create-list-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #0079bf;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.create-list-btn:hover {
+  background-color: #005fa3;
+}
+
+.new-list-cell input[type="text"] {
+  margin-right: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
